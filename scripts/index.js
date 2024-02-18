@@ -1,5 +1,5 @@
 const allSeatsByClass = document.getElementsByClassName("seat");
-let ticketCount = 0;
+const grandPrice = document.getElementById('grand-price');
 for (const seat of allSeatsByClass) {
   const seatNo = seat.innerText;
   seat.addEventListener("click", selectSeat);
@@ -31,7 +31,6 @@ for (const seat of allSeatsByClass) {
         seatCount.innerText=newCount;
         if(parseFloat(seatCount.innerText)>4){
             alert('You can\'t book more than 4 seats at once');
-            return;
         }
     
         
@@ -39,10 +38,7 @@ for (const seat of allSeatsByClass) {
       const totalPrice =document.getElementById('total-price');
       const newTotalPrice = parseFloat(totalPrice.innerText)+parseFloat(p3.innerText);
       totalPrice.innerText = newTotalPrice;
-
-      const grandPrice = document.getElementById('grand-price');
-     console.log(grandPrice.innerText);
-     grandPrice.innerText = newTotalPrice;
+        grandPrice.innerText = newTotalPrice;
 
 
     } else {
@@ -50,25 +46,22 @@ for (const seat of allSeatsByClass) {
       const totalPrice =document.getElementById('total-price');
     const newTotalPrice = parseFloat(totalPrice.innerText)-550;
     totalPrice.innerText = newTotalPrice;
+    grandPrice.innerText = newTotalPrice;
 
-    
-    const removeElement = document.querySelector('.del')
-    removeElement.remove();
-    
-    const totalSeat = document.getElementById("total-seat");
-    const remainingSeat = parseFloat(totalSeat.innerText) + 1;
-    totalSeat.innerText = remainingSeat;
-    
-    const seatCount = document.getElementById("seat-count");
-    const newCount= parseFloat(seatCount.innerText)-1;
-    seatCount.innerText=newCount;
-    if(parseFloat(seatCount.innerText)==0){
-        seatCount.classList.add('hidden');
-    }
-    
-    const grandPrice = document.getElementById('grand-price');
-     console.log(grandPrice.innerText);
-     grandPrice.innerText = newTotalPrice;
+      const removeElement = document.querySelector('.del')
+      removeElement.remove();
+
+      const totalSeat = document.getElementById("total-seat");
+      const remainingSeat = parseFloat(totalSeat.innerText) + 1;
+      totalSeat.innerText = remainingSeat;
+
+      const seatCount = document.getElementById("seat-count");
+        const newCount= parseFloat(seatCount.innerText)-1;
+        seatCount.innerText=newCount;
+        if(parseFloat(seatCount.innerText)==0){
+            seatCount.classList.add('hidden');
+        }
+
       
     }
   }
@@ -80,26 +73,26 @@ const inputField = document.getElementById('input-field');
 const totalprice = document.getElementById('total-price');
 
 
-applyBtn.addEventListener('click',function(){
-    if(inputField.value==='Couple 20'){
-        applyBtn.disabled = false;
-        const newGrandprice = parseFloat(totalprice.innerText)-parseFloat(totalprice.innerText)*0.2;
+// applyBtn.addEventListener('click',function(){
+//     if(inputField.value==='Couple 20'){
+//         applyBtn.disabled = false;
+//         const newGrandprice = parseFloat(totalprice.innerText)-parseFloat(totalprice.innerText)*0.2;
 
-        grandPrice.innerText = newGrandprice;
-    }else if(inputField.value ==='NEW15'){
-        applyBtn.disabled = false;
-        const newGrandprice = parseFloat(totalprice.innerText)-parseFloat(totalprice.innerText)*0.15;
+//         grandPrice.innerText = newGrandprice;
+//     }else if(inputField.value ==='NEW15'){
+//         applyBtn.disabled = false;
+//         const newGrandprice = parseFloat(totalprice.innerText)-parseFloat(totalprice.innerText)*0.15;
 
-        grandPrice.innerText = newGrandprice;
+//         grandPrice.innerText = newGrandprice;
 
-    }
-    else{
-        applyBtn.disabled = true;
-        grandPrice.innerText = parseFloat(totalprice.innerText);
-        // alert('Invalid Coupon Code');
+//     }
+//     else{
+//         applyBtn.disabled = true;
+//         grandPrice.innerText = parseFloat(totalprice.innerText);
+//         // alert('Invalid Coupon Code');
     
-    }
-    inputField.value="";
-    totalprice.innerText=0;
-    grandPrice.innerText=0;
-})
+//     }
+//     inputField.value="";
+//     totalprice.innerText=0;
+//     grandPrice.innerText=0;
+// })
