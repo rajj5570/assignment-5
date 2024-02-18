@@ -73,26 +73,23 @@ const inputField = document.getElementById('input-field');
 const totalprice = document.getElementById('total-price');
 
 
-// applyBtn.addEventListener('click',function(){
-//     if(inputField.value==='Couple 20'){
-//         applyBtn.disabled = false;
-//         const newGrandprice = parseFloat(totalprice.innerText)-parseFloat(totalprice.innerText)*0.2;
+applyBtn.addEventListener('click',function(){
+    if(inputField.value==='Couple 20'){
+    const newGrandprice = parseFloat(totalprice.innerText)-parseFloat(totalprice.innerText)*0.2;
+        grandPrice.innerText = newGrandprice;
 
-//         grandPrice.innerText = newGrandprice;
-//     }else if(inputField.value ==='NEW15'){
-//         applyBtn.disabled = false;
-//         const newGrandprice = parseFloat(totalprice.innerText)-parseFloat(totalprice.innerText)*0.15;
+    }else if(inputField.value ==='NEW15'){
+        const newGrandprice = parseFloat(totalprice.innerText)-parseFloat(totalprice.innerText)*0.15;
+        grandPrice.innerText = newGrandprice;
 
-//         grandPrice.innerText = newGrandprice;
-
-//     }
-//     else{
-//         applyBtn.disabled = true;
-//         grandPrice.innerText = parseFloat(totalprice.innerText);
-//         // alert('Invalid Coupon Code');
+    }
+    else{
+        applyBtn.disabled = true;
+        grandPrice.innerText = parseFloat(totalprice.innerText);
+        // alert('Invalid Coupon Code');
+        inputField.value="";
     
-//     }
-//     inputField.value="";
-//     totalprice.innerText=0;
-//     grandPrice.innerText=0;
-// })
+    }
+})
+totalprice.innerText=0;
+grandPrice.innerText=0;
